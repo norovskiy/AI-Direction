@@ -692,6 +692,60 @@
 			"url": "https://www.clickable.so",
 			"moreInfo": "Генерирует рекламные кампании.",
 			"priceCategory": "Платный"
+		},
+		{
+			"id": 77,
+			"name": "IconifyAI",
+			"category": "Иконки",
+			"description": "Генерация иконок для приложений и сайтов.",
+			"url": "https://iconify.ai",
+			"moreInfo": "Позволяет создавать уникальные векторные иконки.",
+			"priceCategory": "Платный"
+		},
+		{
+			"id": 78,
+			"name": "NounIcons",
+			"category": "Иконки",
+			"description": "Библиотека бесплатных иконок с AI-подбором.",
+			"url": "https://nounicons.com",
+			"moreInfo": "Идеально для веб-проектов и презентаций.",
+			"priceCategory": "Бесплатный"
+		},
+		{
+			"id": 79,
+			"name": "IconScout AI",
+			"category": "Иконки",
+			"description": "Создание иконок и иллюстраций с AI.",
+			"url": "https://iconscout.com/ai",
+			"moreInfo": "Подходит для дизайна интерфейсов и маркетинга.",
+			"priceCategory": "Платный"
+		},
+		{
+			"id": 80,
+			"name": "Streamline AI",
+			"category": "Иконки",
+			"description": "Генерация наборов иконок автоматически.",
+			"url": "https://streamlineicons.com/ai",
+			"moreInfo": "Быстро создаёт готовые к использованию наборы.",
+			"priceCategory": "Бесплатный"
+		},
+		{
+			"id": 81,
+			"name": "Flaticon AI",
+			"category": "Иконки",
+			"description": "AI-помощник для поиска и генерации иконок.",
+			"url": "https://flaticon.com/ai",
+			"moreInfo": "Можно искать и создавать кастомные иконки.",
+			"priceCategory": "Платный"
+		},
+		{
+			"id": 82,
+			"name": "IconGenerator",
+			"category": "Иконки",
+			"description": "Бесплатный инструмент для генерации SVG-иконок.",
+			"url": "https://icongenerator.com",
+			"moreInfo": "Идеально для быстрых прототипов и дизайнов.",
+			"priceCategory": "Бесплатный"
 		}
 	]
 }

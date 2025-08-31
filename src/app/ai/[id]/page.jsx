@@ -1,5 +1,5 @@
 export default async function AIPage({ params }) {
-  const res = await fetch(`http://localhost:3001/ai/${params.id}`, {
+  const res = await fetch(`http://localhost:3002/ai/${params.id}`, {
     cache: 'no-store', 
   })
 
@@ -22,7 +22,7 @@ export default async function AIPage({ params }) {
   const ai = await res.json()
 
   return (
-    <div className="min-h-screen p-8 max-w-4xl mx-auto">
+    <div className="min-h-screen p-8 sm:max-w-3xl max-w-4xl mx-auto">
       <a
         href="/all"
         className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
@@ -44,23 +44,27 @@ export default async function AIPage({ params }) {
       </a>
 
       <div className="space-y-8">
-        <div className="text-center space-y-4">
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600/30 to-pink-600/30 text-purple-200 text-sm font-semibold rounded-full border border-purple-500/20">
-            {ai.category}
-          </span>
+        <div className="flex text-center space-y-4 justify-between items-center">
           <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300">
             {ai.name}
           </h1>
+          <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600/30 to-pink-600/30 text-purple-200 text-sm font-semibold rounded-full border border-purple-500/20">
+            {ai.category}
+          </span>
+          
         </div>
 
-        <div className="bg-gray-800/30 rounded-2xl p-8 border border-gray-700/30 backdrop-blur-sm">
+        <div className="bg-gray-800/30 rounded-2xl pt-7 px-8 pb-4 border border-gray-700/30 backdrop-blur-sm">
           <p className="text-gray-200 text-lg leading-relaxed text-center">
             {ai.description}
           </p>
+          <div className="flex justify-end mt-4 text-gray-400 italic text-sm">
+            <p>{ai.priceCategory}</p>
+          </div>
         </div>
 
         <div className="text-gray-400 text-[19px]">
-          <center>{ai.moreInfo}</center>
+          {ai.moreInfo}
         </div>
 
         <div className="text-center">

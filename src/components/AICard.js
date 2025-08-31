@@ -19,6 +19,9 @@ export default function AICard({ ai }) {
       <p className="text-gray-300/90 mt-3 flex-grow text-sm leading-relaxed">
         {ai.description}
       </p>
+      <div className="flex justify-end mt-1 text-gray-400 italic text-sm">
+            <p>{ai.priceCategory}</p>
+          </div>
 
       <Link href={`/ai/${ai.id}`} className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600/80 to-pink-600/80 hover:from-purple-500 hover:to-pink-500 text-white font-medium rounded-xl transition-all duration-300 transform hover:translate-y-[-2px] shadow-lg hover:shadow-purple-500/20 group/btn">
         <span>Исследовать</span>

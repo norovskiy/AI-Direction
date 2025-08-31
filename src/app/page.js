@@ -5,7 +5,7 @@ export default async function Home() {
   let aiList = []
 
   try {
-    const res = await fetch("http://localhost:3001/ai", { cache: "no-store" })
+    const res = await fetch("http://localhost:3002/ai", { cache: "no-store" })
     if (!res.ok) throw new Error("Ошибка загрузки данных")
     const data = await res.json()
     aiList = data.filter(ai => ai.category === "Рисование").slice(0, 4)

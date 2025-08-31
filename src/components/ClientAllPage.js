@@ -10,7 +10,8 @@ export default function ClientAllPage({ aiList }) {
     ai =>
       ai.name.toLowerCase().includes(query.toLowerCase()) ||
       ai.category.toLowerCase().includes(query.toLowerCase()) ||
-      ai.description.toLowerCase().includes(query.toLowerCase())
+      ai.description.toLowerCase().includes(query.toLowerCase()) ||
+      ai.priceCategory.toLowerCase().includes(query.toLowerCase())
   )
 
   return (

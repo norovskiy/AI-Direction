@@ -1,10 +1,10 @@
 import ClientAllPage from '@/components/ClientAllPage'
 
-export default async function AllPage({ searchParams }) {
+export default async function AllPage() {
   let aiList = []
 
   try {
-    const res = await fetch('http://localhost:3001/ai', { cache: 'no-store' })
+    const res = await fetch('http://localhost:3002/ai', { cache: 'no-store' })
     if (!res.ok) throw new Error('Ошибка загрузки данных')
     aiList = await res.json()
   } catch (err) {
