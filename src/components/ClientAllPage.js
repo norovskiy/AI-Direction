@@ -5,14 +5,25 @@ import Link from 'next/link'
 
 export default function ClientAllPage({ aiList }) {
   const [query, setQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedPrice, setSelectedPrice] = useState('')
 
-  const filtered = aiList.filter(
-    ai =>
+  // Получаем уникальные категории и ценовые категории для селектов
+  const categories = [...new Set(aiList.map(ai => ai.category.toString()))]
+  const priceCategories = [...new Set(aiList.map(ai => ai.priceCategory.toString()))]
+
+  const filtered = aiList.filter(ai => {
+    const matchesQuery =
       ai.name.toLowerCase().includes(query.toLowerCase()) ||
       ai.category.toLowerCase().includes(query.toLowerCase()) ||
       ai.description.toLowerCase().includes(query.toLowerCase()) ||
       ai.priceCategory.toLowerCase().includes(query.toLowerCase())
-  )
+
+    const matchesCategory = selectedCategory ? ai.category === selectedCategory : true
+    const matchesPrice = selectedPrice ? ai.priceCategory === selectedPrice : true
+
+    return matchesQuery && matchesCategory && matchesPrice
+  })
 
   return (
     <div className="min-h-screen p-8 space-y-12 max-w-7xl mx-auto">
@@ -25,21 +36,42 @@ export default function ClientAllPage({ aiList }) {
         </p>
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
+      {/* Фильтры */}
+      <div className="flex flex-col md:flex-row gap-4 mb-6">
         <input
           type="text"
           placeholder="Поиск по названию, категории или описанию..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-12 pr-6 py-4 bg-gray-800/50 border border-gray-700/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm"
+          className="flex-1 pl-4 pr-4 py-3 bg-gray-800/50 border border-gray-700/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
         />
+        <select
+          value={selectedCategory}
+          onChange={e => setSelectedCategory(e.target.value)}
+          className="pl-4 pr-4 py-3 bg-gray-800/50 border border-gray-700/30 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+        >
+          <option value="">Все категории</option>
+          {categories.map(cat => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+        <select
+          value={selectedPrice}
+          onChange={e => setSelectedPrice(e.target.value)}
+          className="pl-4 pr-4 py-3 bg-gray-800/50 border border-gray-700/30 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+        >
+          <option value="">Все цены</option>
+          {priceCategories.map(price => (
+            <option key={price} value={price}>
+              {price}
+            </option>
+          ))}
+        </select>
       </div>
 
+      {/* Список ИИ */}
       {filtered.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filtered.map(ai =>
