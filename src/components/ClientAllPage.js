@@ -88,7 +88,7 @@ export default function ClientAllPage({ aiList }) {
         <div className="text-center py-16">
           <div className="text-6xl mb-4">🔍</div>
           <h3 className="text-2xl font-semibold text-gray-300 mb-2">Ничего не найдено</h3>
-          <p className="text-gray-400">Попробуйте изменить поисковый запрос</p>
+          <p className="text-gray-400">Попробуйте изменить поисковый запрос)</p>
         </div>
       )}
     </div>
